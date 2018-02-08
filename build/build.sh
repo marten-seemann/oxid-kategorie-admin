@@ -12,7 +12,7 @@ cd tmp
 echo "Retrieving code from GIT repo..."
 git clone --quiet ../.. .
 git submodule update --init --quiet
-rm -rf .git .gitignore .gitmodules *.sublime-project *.sublime-workspace build/ inc/lib/.git
+rm -rf .git .gitignore .gitmodules README.md *.sublime-project *.sublime-workspace build/ inc/lib/.git
 
 # copy to resolve all symlinks
 cd $DIR
