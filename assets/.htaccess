@@ -1,0 +1,12 @@
+<FilesMatch "^.*\.coffee">
+  Order deny,allow
+  Deny from all
+</FilesMatch>
+<FilesMatch "^.*\.sass">
+  Order deny,allow
+  Deny from all
+</FilesMatch>
+<FilesMatch "^.*\.scss">
+  Order deny,allow
+  Deny from all
+</FilesMatch>

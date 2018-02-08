@@ -1,0 +1,15 @@
+/oxid
+/doc
+/config.php
+
+/build/*.zip
+/build/Kategorie-Admin*
+/build/encoder/encrypted*
+/build/encoder/license.txt
+/build/productive
+/build/tmp
+/node_modules
+
+
+/.htaccess
+/.htpasswd

@@ -1,0 +1,234 @@
+@import "../bootstrap/css/bootstrap/variables";
+@import "../bootstrap/css/mods";
+
+@import "mods-ddslick";
+
+@mixin category_coloring($color) {
+  background-color: $color !important;
+  border-color: lighten($color, 5%) !important;
+}
+
+$media-tablet: "only screen and (max-width: 1024px)";
+$media-small: "only screen and (max-width: 850px)";
+
+$blue: lighten($brand-primary, 32%);
+
+
+.form-control.input-mini {
+  width: 80px;
+}
+
+header {
+  margin: 12px 0 5px 0;
+  padding-bottom: 6px;
+  height: 34px;
+  border-bottom: 1px solid #eeeeee;
+  @media #{$media-tablet} {
+    margin: 8px 0 2px 0;
+    padding-bottom: 3px;
+    #refresh {
+      display: none;
+    }
+  }
+  h1 {
+    width: 50%;
+    float: left;
+    @media #{$media-small} {
+      width: 42%;
+    }
+    span#help {
+      margin-left: 100px;
+      @media #{$media-tablet} {
+        margin-left: 50px;
+      }
+      @media #{$media-small} {
+        margin-left: 25px;
+      }
+    }
+  }
+  div#header_functions_right {
+    margin-right: 20px;
+    // text-align: right
+    > div {
+      float: left;
+    }
+    > div:not(:first-child) {
+      margin-left: 22px;
+    }
+  }
+  div#cat_language_switcher_wrapper, div#oxid_language_switcher_wrapper {
+    > div:first-child {
+      float: left;
+      padding-top: 5px;
+      margin-right: 8px;
+    }
+    > div:last-child {
+      float: right;
+    }
+  }
+}
+
+// bootstrap modal buttons (click on them triggers modal to show)
+span#category-info,
+span#articles-info {
+  margin-left: 35px;
+}
+
+// modify the noty notifications
+.noty_message {
+  padding: 18px 50px !important;
+  .noty_text {
+    font-size: 1.3em;
+  }
+}
+
+// modify the tree
+#category_tree.jstree-default {
+  background: none;
+}
+
+#category_tree {
+  margin-top: 4px;
+
+  li > a {
+    height: 100%;
+  }
+
+  a.jstree-search {
+    color: red;
+  }
+  .sort {
+    display: none;
+    font-size: xx-small;
+    vertical-align: top;
+  }
+  .jstree-clicked {
+    @include category_coloring($blue);
+  }
+}
+
+#category_tree, #modal_categories {
+  .category_hidden a, .category_hidden {
+    color: #888888;
+  }
+  .category_inactive a, .category_inactive {
+    font-style: italic;
+  }
+}
+
+#tree_close_all { // function to close all nodes in the tree
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  input[type="button"] { // button to trigger the close all
+    width: 100px;
+    margin-left: 120px;
+  }
+}
+
+#search_hidden_cat_warning { // warning if *selected* tree nodes are hidden due to search or so
+  width: 62%;
+  position: relative;
+  left: 20px;
+  margin-top: 10px;
+  margin-left: -20px;
+  display: none;
+}
+
+section#details {
+  width: 97%;
+
+  .tab-content {
+    margin-top: 15px;
+  }
+  #pictures {
+    .fileuploader {
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .image {
+      float: left;
+      img {
+        max-width: 80%;
+        max-height: 275px;
+      }
+    }
+    .upload-controls {
+      margin-top: -6px;
+      display: inline-block;
+      div {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      .upload-add {
+        float: left;
+      }
+      .upload-delete {
+        float: right;
+      }
+    }
+  }
+}
+
+// make the bootstrap modal fade in and out
+.modal.fade {
+  $time: 0.25s;
+  -webkit-transition: opacity $time linear, top $time ease-out;
+  -moz-transition: opacity $time linear, top $time ease-out;
+  -ms-transition: opacity $time linear, top $time ease-out;
+  -o-transition: opacity $time linear, top $time ease-out;
+  transition: opacity $time linear, top $time ease-out;
+}
+
+// modify the bootstrap form
+form.form-horizontal {
+  $label-width: 150px;
+  .control-group {
+    margin-bottom: 5px;
+  }
+  .control-label {
+    font-weight: bold;
+    width: $label-width;
+  }
+  .controls {
+    margin-left: $label-width + 20px;
+  }
+  .controls .only-text { // fix the positioning if no input field, but only text, is displayed in the right column
+    margin-top: 4px;
+  }
+}
+
+// modify the bootstrap headings
+// this is necessary due to changes introduced with bootstrap 2.1
+h1 {
+  font-size: 30px;
+  line-height: 1;
+  margin: 0px;
+  @media #{$media-tablet} {
+    font-size: 27px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+  margin: 0px;
+  @media #{$media-tablet} {
+    font-size: 22px;
+  }
+}
+
+// modify the default bootstrap table layout
+.table th, .table td {
+  font-size: 0.92em;
+  padding: 3px 5px;
+}
+
+.pagination a {
+  padding: 0 12px;
+  line-height: 30px;
+}
+
+.row-fluid [class*="span"]:first-child {
+  border-right: 1px solid #eeeeee;
+}
